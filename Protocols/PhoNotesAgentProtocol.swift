@@ -9,5 +9,9 @@
 import Foundation
 
 @objc protocol PhoNotesAgentProtocol {
+
     func upperCaseString(_ aString: String, withReply reply: @escaping (String) -> Void)
+
+	func parseText(_ text: String, withReply reply: @escaping (Data?) -> Void)
+
 }

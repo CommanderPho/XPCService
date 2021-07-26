@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhoAggregateDoseServicesLib; sourceTree = "<group>"; };
+		D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_GeneralXPC.md; sourceTree = "<group>"; };
 		E9E584EF2555A8BC0084C71D /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E584F32555A8BC0084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = PhoNotesAgent.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +103,7 @@
 		E9E584E52555A8BC0084C71D = {
 			isa = PBXGroup;
 			children = (
+				D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */,
 				D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */,
 				E9E585272555B01C0084C71D /* README.md */,
 				E9E5850E2555A8E10084C71D /* Protocols */,
