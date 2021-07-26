@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import PhoAggregateDoseServicesLib
+import PhoCoreEventsLib
+import PhoNotesParser
 import PhoNotesLib
+import CodableXPC
 
 
 // MARK: -
@@ -15,8 +19,20 @@ import PhoNotesLib
 // Description: Despite its name, this is the actual XPC Service
 @objc class PhoNotesAgent: NSObject, PhoNotesAgentProtocol {
 
-	func parseText(_ text: String, withReply reply: @escaping (Data?) -> Void) {
-		<#code#>
+	func parseText(noteDayDate: Date, noteText: String, withReply reply: @escaping (xpc_object_t?) -> Void) {
+		let resultArray = PhoNotesLib.performParse(noteDayDate: noteDayDate, noteText: noteText) // [CombinedLineParseResult]
+
+		let flatRecordResultsArray = resultArray.compactMap({ $0.0 }) // [Record]
+		let payload = try! XPCEncoder.encode(flatRecordResultsArray)
+
+		reply(payload)
+
+//		for anItem in resultArray {
+//			let payload = try! XPCEncoder.encode(anItem.0)
+//
+//		}
+
+
 	}
 
     func upperCaseString(_ aString: String, withReply reply: @escaping (String) -> Void) {
