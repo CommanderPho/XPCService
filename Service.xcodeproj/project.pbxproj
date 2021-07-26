@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E9E585092555A8DB0084C71D /* TextAgent.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = E9E584FE2555A8DB0084C71D /* TextAgent.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E9E585102555A92D0084C71D /* TextAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* TextAgentProtocol.swift */; };
+		D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */; };
+		E9E585092555A8DB0084C71D /* PhoNotesAgent.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9E585102555A92D0084C71D /* PhoNotesAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */; };
 		E9E585122555A9860084C71D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585112555A9860084C71D /* Service.swift */; };
 		E9E5851A2555AA630084C71D /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585192555AA630084C71D /* ServiceTests.swift */; };
 		E9E5851C2555AA630084C71D /* Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9E584EF2555A8BC0084C71D /* Service.framework */; };
-		E9E585232555ABB90084C71D /* TextAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585222555ABB90084C71D /* TextAgent.swift */; };
-		E9E585242555ABE60084C71D /* TextAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* TextAgentProtocol.swift */; };
+		E9E585232555ABB90084C71D /* PhoNotesAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585222555ABB90084C71D /* PhoNotesAgent.swift */; };
+		E9E585242555ABE60084C71D /* PhoNotesAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */; };
 		E9E585262555AC2B0084C71D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585252555AC2B0084C71D /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +42,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
 			dstSubfolderSpec = 16;
 			files = (
-				E9E585092555A8DB0084C71D /* TextAgent.xpc in Embed XPC Services */,
+				E9E585092555A8DB0084C71D /* PhoNotesAgent.xpc in Embed XPC Services */,
 			);
 			name = "Embed XPC Services";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,16 +50,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhoAggregateDoseServicesLib; sourceTree = "<group>"; };
 		E9E584EF2555A8BC0084C71D /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E584F32555A8BC0084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9E584FE2555A8DB0084C71D /* TextAgent.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = TextAgent.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = PhoNotesAgent.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E585062555A8DB0084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9E5850F2555A92D0084C71D /* TextAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAgentProtocol.swift; sourceTree = "<group>"; };
+		E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoNotesAgentProtocol.swift; sourceTree = "<group>"; };
 		E9E585112555A9860084C71D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		E9E585172555AA630084C71D /* ServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E585192555AA630084C71D /* ServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTests.swift; sourceTree = "<group>"; };
 		E9E5851B2555AA630084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9E585222555ABB90084C71D /* TextAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAgent.swift; sourceTree = "<group>"; };
+		E9E585222555ABB90084C71D /* PhoNotesAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoNotesAgent.swift; sourceTree = "<group>"; };
 		E9E585252555AC2B0084C71D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E9E585272555B01C0084C71D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,15 +92,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7D2FDCD26AF60D2002E9114 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E9E584E52555A8BC0084C71D = {
 			isa = PBXGroup;
 			children = (
+				D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */,
 				E9E585272555B01C0084C71D /* README.md */,
 				E9E5850E2555A8E10084C71D /* Protocols */,
 				E9E584F12555A8BC0084C71D /* Service */,
-				E9E584FF2555A8DB0084C71D /* TextAgent */,
+				E9E584FF2555A8DB0084C71D /* PhoNotesAgent */,
 				E9E585182555AA630084C71D /* ServiceTests */,
 				E9E584F02555A8BC0084C71D /* Products */,
+				D7D2FDCD26AF60D2002E9114 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E584EF2555A8BC0084C71D /* Service.framework */,
-				E9E584FE2555A8DB0084C71D /* TextAgent.xpc */,
+				E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */,
 				E9E585172555AA630084C71D /* ServiceTests.xctest */,
 			);
 			name = Products;
@@ -120,20 +132,20 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		E9E584FF2555A8DB0084C71D /* TextAgent */ = {
+		E9E584FF2555A8DB0084C71D /* PhoNotesAgent */ = {
 			isa = PBXGroup;
 			children = (
 				E9E585062555A8DB0084C71D /* Info.plist */,
-				E9E585222555ABB90084C71D /* TextAgent.swift */,
+				E9E585222555ABB90084C71D /* PhoNotesAgent.swift */,
 				E9E585252555AC2B0084C71D /* main.swift */,
 			);
-			path = TextAgent;
+			path = PhoNotesAgent;
 			sourceTree = "<group>";
 		};
 		E9E5850E2555A8E10084C71D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E9E5850F2555A92D0084C71D /* TextAgentProtocol.swift */,
+				E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -180,9 +192,9 @@
 			productReference = E9E584EF2555A8BC0084C71D /* Service.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E9E584FD2555A8DB0084C71D /* TextAgent */ = {
+		E9E584FD2555A8DB0084C71D /* PhoNotesAgent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9E5850A2555A8DB0084C71D /* Build configuration list for PBXNativeTarget "TextAgent" */;
+			buildConfigurationList = E9E5850A2555A8DB0084C71D /* Build configuration list for PBXNativeTarget "PhoNotesAgent" */;
 			buildPhases = (
 				E9E584FA2555A8DB0084C71D /* Sources */,
 				E9E584FB2555A8DB0084C71D /* Frameworks */,
@@ -192,9 +204,12 @@
 			);
 			dependencies = (
 			);
-			name = TextAgent;
+			name = PhoNotesAgent;
+			packageProductDependencies = (
+				D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */,
+			);
 			productName = TextAgent;
-			productReference = E9E584FE2555A8DB0084C71D /* TextAgent.xpc */;
+			productReference = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */;
 			productType = "com.apple.product-type.xpc-service";
 		};
 		E9E585162555AA630084C71D /* ServiceTests */ = {
@@ -223,7 +238,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1250;
-				ORGANIZATIONNAME = "Tim Wolff";
+				ORGANIZATIONNAME = "Pho Hale";
 				TargetAttributes = {
 					E9E584EE2555A8BC0084C71D = {
 						CreatedOnToolsVersion = 10.1;
@@ -252,7 +267,7 @@
 			projectRoot = "";
 			targets = (
 				E9E584EE2555A8BC0084C71D /* Service */,
-				E9E584FD2555A8DB0084C71D /* TextAgent */,
+				E9E584FD2555A8DB0084C71D /* PhoNotesAgent */,
 				E9E585162555AA630084C71D /* ServiceTests */,
 			);
 		};
@@ -287,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E585102555A92D0084C71D /* TextAgentProtocol.swift in Sources */,
+				E9E585102555A92D0084C71D /* PhoNotesAgentProtocol.swift in Sources */,
 				E9E585122555A9860084C71D /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,9 +311,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9E585242555ABE60084C71D /* TextAgentProtocol.swift in Sources */,
+				E9E585242555ABE60084C71D /* PhoNotesAgentProtocol.swift in Sources */,
 				E9E585262555AC2B0084C71D /* main.swift in Sources */,
-				E9E585232555ABB90084C71D /* TextAgent.swift in Sources */,
+				E9E585232555ABB90084C71D /* PhoNotesAgent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,7 +330,7 @@
 /* Begin PBXTargetDependency section */
 		E9E585082555A8DB0084C71D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E9E584FD2555A8DB0084C71D /* TextAgent */;
+			target = E9E584FD2555A8DB0084C71D /* PhoNotesAgent */;
 			targetProxy = E9E585072555A8DB0084C71D /* PBXContainerItemProxy */;
 		};
 		E9E5851E2555AA630084C71D /* PBXTargetDependency */ = {
@@ -515,13 +530,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 45LPKK982V;
-				INFOPLIST_FILE = TextAgent/Info.plist;
+				INFOPLIST_FILE = PhoNotesAgent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.TextAgent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.dev.PhoNotesAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -539,13 +554,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 45LPKK982V;
-				INFOPLIST_FILE = TextAgent/Info.plist;
+				INFOPLIST_FILE = PhoNotesAgent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.TextAgent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.dev.PhoNotesAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -565,7 +580,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.codepod.ServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.dev.ServiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -583,7 +598,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.codepod.ServiceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PhoHale.dev.ServiceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -610,7 +625,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9E5850A2555A8DB0084C71D /* Build configuration list for PBXNativeTarget "TextAgent" */ = {
+		E9E5850A2555A8DB0084C71D /* Build configuration list for PBXNativeTarget "PhoNotesAgent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9E5850B2555A8DB0084C71D /* Debug */,
@@ -629,6 +644,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PhoAggregateDoseServicesLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9E584E62555A8BC0084C71D /* Project object */;
 }

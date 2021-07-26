@@ -1,5 +1,5 @@
 //
-//  TextAgentProtocol.swift
+//  PhoNotesAgentProtocol.swift
 //  Service
 //
 //  Created by Tim Wolff on 06/11/2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc protocol TextAgentProtocol {
+@objc protocol PhoNotesAgentProtocol {
     func upperCaseString(_ aString: String, withReply reply: @escaping (String) -> Void)
 }
