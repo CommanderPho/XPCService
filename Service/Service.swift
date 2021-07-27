@@ -9,7 +9,6 @@
 import Foundation
 import PhoAggregateDoseServicesLib
 import PhoCoreEventsLib
-import CodableXPC
 
 
 public class Service {
@@ -18,15 +17,12 @@ public class Service {
     public init() {
         connection = NSXPCConnection(serviceName: "com.PhoHale.dev.PhoNotesAgent")
         connection.remoteObjectInterface = NSXPCInterface(with: PhoNotesAgentProtocol.self)
-
-//		let prevAllowedClasses = connection.remoteObjectInterface?.classes(for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
-//		connection.remoteObjectInterface?.setClasses(<#T##classes: Set<AnyHashable>##Set<AnyHashable>#>, for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
         connection.resume()
     }
     
     public func upperCase(aString: String, reply: @escaping (String) -> Void) {
         let service = connection.remoteObjectProxyWithErrorHandler { (error) in
-            print(error)
+			print("❗️Received error:", error)
         } as! PhoNotesAgentProtocol
         
         service.upperCaseString(aString, withReply: reply)
@@ -35,16 +31,14 @@ public class Service {
 
 	public func parseText(noteDayDate: Date, noteText: String, reply: @escaping ([Record]) -> Void) {
 		let service = connection.remoteObjectProxyWithErrorHandler { (error) in
-			print(error)
+			print("❗️Received error:", error)
 		} as! PhoNotesAgentProtocol
-
 		service.parseText(noteDayDate: noteDayDate, noteText: noteText) { (returned_data) in
 			guard let validObject = returned_data else {
 				print("return nil")
 				reply([])
 				return
 			}
-
 			// we're OK to parse!
 			let decoder = JSONDecoder()
 			guard let validLoadedParsedRecordsArray = try? decoder.decode(Array<Record>.self, from: validObject) else {
@@ -53,14 +47,8 @@ public class Service {
 				reply([])
 				return
 			}
-
-
-//			let decodedObject = try! XPCDecoder.decode(Array<Record>.self, message: validObject)
 			print("validLoadedParsedRecordsArray: \(validLoadedParsedRecordsArray)")
 			reply(validLoadedParsedRecordsArray)
-
-
-
 		}
 
 	}

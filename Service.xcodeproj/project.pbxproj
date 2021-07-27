@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D742D7E926AF7A7E00BA1209 /* CodableXPC in Frameworks */ = {isa = PBXBuildFile; productRef = D742D7E826AF7A7E00BA1209 /* CodableXPC */; };
-		D742D7EB26AF7BD100BA1209 /* CodableXPC in Frameworks */ = {isa = PBXBuildFile; productRef = D742D7EA26AF7BD100BA1209 /* CodableXPC */; };
 		D742D7ED26AF7D4800BA1209 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D742D7EC26AF7D4800BA1209 /* PhoAggregateDoseServicesLib */; };
 		D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */; };
 		E9E585092555A8DB0084C71D /* PhoNotesAgent.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -54,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhoAggregateDoseServicesLib; sourceTree = "<group>"; };
+		D7C6C50B26AF8B2F0066546D /* README_ServicesOffered.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_ServicesOffered.md; sourceTree = "<group>"; };
 		D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_GeneralXPC.md; sourceTree = "<group>"; };
 		E9E584EF2555A8BC0084C71D /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E584F32555A8BC0084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D742D7E926AF7A7E00BA1209 /* CodableXPC in Frameworks */,
 				D742D7ED26AF7D4800BA1209 /* PhoAggregateDoseServicesLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */,
-				D742D7EB26AF7BD100BA1209 /* CodableXPC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +106,7 @@
 		E9E584E52555A8BC0084C71D = {
 			isa = PBXGroup;
 			children = (
+				D7C6C50B26AF8B2F0066546D /* README_ServicesOffered.md */,
 				D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */,
 				D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */,
 				E9E585272555B01C0084C71D /* README.md */,
@@ -197,7 +195,6 @@
 			);
 			name = Service;
 			packageProductDependencies = (
-				D742D7E826AF7A7E00BA1209 /* CodableXPC */,
 				D742D7EC26AF7D4800BA1209 /* PhoAggregateDoseServicesLib */,
 			);
 			productName = Service;
@@ -219,7 +216,6 @@
 			name = PhoNotesAgent;
 			packageProductDependencies = (
 				D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */,
-				D742D7EA26AF7BD100BA1209 /* CodableXPC */,
 			);
 			productName = TextAgent;
 			productReference = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */;
@@ -276,7 +272,6 @@
 			);
 			mainGroup = E9E584E52555A8BC0084C71D;
 			packageReferences = (
-				D742D7E526AF780700BA1209 /* XCRemoteSwiftPackageReference "CodableXPC" */,
 			);
 			productRefGroup = E9E584F02555A8BC0084C71D /* Products */;
 			projectDirPath = "";
@@ -667,28 +662,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		D742D7E526AF780700BA1209 /* XCRemoteSwiftPackageReference "CodableXPC" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/daniel-grumberg/CodableXPC.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		D742D7E826AF7A7E00BA1209 /* CodableXPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D742D7E526AF780700BA1209 /* XCRemoteSwiftPackageReference "CodableXPC" */;
-			productName = CodableXPC;
-		};
-		D742D7EA26AF7BD100BA1209 /* CodableXPC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D742D7E526AF780700BA1209 /* XCRemoteSwiftPackageReference "CodableXPC" */;
-			productName = CodableXPC;
-		};
 		D742D7EC26AF7D4800BA1209 /* PhoAggregateDoseServicesLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PhoAggregateDoseServicesLib;
