@@ -19,8 +19,8 @@ public class Service {
         connection = NSXPCConnection(serviceName: "com.PhoHale.dev.PhoNotesAgent")
         connection.remoteObjectInterface = NSXPCInterface(with: PhoNotesAgentProtocol.self)
 
-		let prevAllowedClasses = connection.remoteObjectInterface?.classes(for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
-		connection.remoteObjectInterface?.setClasses(<#T##classes: Set<AnyHashable>##Set<AnyHashable>#>, for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
+//		let prevAllowedClasses = connection.remoteObjectInterface?.classes(for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
+//		connection.remoteObjectInterface?.setClasses(<#T##classes: Set<AnyHashable>##Set<AnyHashable>#>, for: <#T##Selector#>, argumentIndex: <#T##Int#>, ofReply: <#T##Bool#>)
         connection.resume()
     }
     
@@ -38,19 +38,26 @@ public class Service {
 			print(error)
 		} as! PhoNotesAgentProtocol
 
-		service.parseText(noteDayDate: noteDayDate, noteText: noteText) { (xpc_object) in
-			guard let validObject = xpc_object else {
+		service.parseText(noteDayDate: noteDayDate, noteText: noteText) { (returned_data) in
+			guard let validObject = returned_data else {
+				print("return nil")
+				reply([])
+				return
+			}
+
+			// we're OK to parse!
+			let decoder = JSONDecoder()
+			guard let validLoadedParsedRecordsArray = try? decoder.decode(Array<Record>.self, from: validObject) else {
+				debugPrint("Warning: loaded data but couldn't decode from json!")
 				print("return nil")
 				reply([])
 				return
 			}
 
 
-
-
-			let decodedObject = try! XPCDecoder.decode(Array<Record>.self, message: validObject)
-			print("decodedObject: \(decodedObject)")
-			reply(decodedObject)
+//			let decodedObject = try! XPCDecoder.decode(Array<Record>.self, message: validObject)
+			print("validLoadedParsedRecordsArray: \(validLoadedParsedRecordsArray)")
+			reply(validLoadedParsedRecordsArray)
 
 
 

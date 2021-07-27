@@ -12,6 +12,6 @@ import Foundation
 
     func upperCaseString(_ aString: String, withReply reply: @escaping (String) -> Void)
 
-	func parseText(noteDayDate: Date, noteText: String, withReply reply: @escaping (xpc_object_t?) -> Void)
+	func parseText(noteDayDate: Date, noteText: String, withReply reply: @escaping (Data?) -> Void)
 
 }
