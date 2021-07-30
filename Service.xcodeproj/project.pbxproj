@@ -11,6 +11,7 @@
 		D7BE089A26B0B6BB00BA25CF /* FolderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE089926B0B6BB00BA25CF /* FolderReference.swift */; };
 		D7BE089B26B0B6BB00BA25CF /* FolderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE089926B0B6BB00BA25CF /* FolderReference.swift */; };
 		D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */; };
+		D7E5BD3E26B4BDC600F0E77E /* ServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5BD3D26B4BDC600F0E77E /* ServiceDelegate.swift */; };
 		E9E585092555A8DB0084C71D /* PhoNotesAgent.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E9E585102555A92D0084C71D /* PhoNotesAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */; };
 		E9E585122555A9860084C71D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E585112555A9860084C71D /* Service.swift */; };
@@ -57,6 +58,9 @@
 		D7BE089926B0B6BB00BA25CF /* FolderReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderReference.swift; sourceTree = "<group>"; };
 		D7C6C50B26AF8B2F0066546D /* README_ServicesOffered.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_ServicesOffered.md; sourceTree = "<group>"; };
 		D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_GeneralXPC.md; sourceTree = "<group>"; };
+		D7E5BD3B26B4B70500F0E77E /* README_LaunchAgent.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_LaunchAgent.md; sourceTree = "<group>"; };
+		D7E5BD3C26B4B98900F0E77E /* com.PhoHale.mdphonotesagentxpc.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = com.PhoHale.mdphonotesagentxpc.plist; sourceTree = "<group>"; };
+		D7E5BD3D26B4BDC600F0E77E /* ServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDelegate.swift; sourceTree = "<group>"; };
 		E9E584EF2555A8BC0084C71D /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E584F32555A8BC0084C71D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = PhoNotesAgent.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +121,8 @@
 		E9E584E52555A8BC0084C71D = {
 			isa = PBXGroup;
 			children = (
+				D7E5BD3C26B4B98900F0E77E /* com.PhoHale.mdphonotesagentxpc.plist */,
+				D7E5BD3B26B4B70500F0E77E /* README_LaunchAgent.md */,
 				D7C6C50B26AF8B2F0066546D /* README_ServicesOffered.md */,
 				D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */,
 				D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */,
@@ -155,6 +161,7 @@
 				E9E585062555A8DB0084C71D /* Info.plist */,
 				E9E585222555ABB90084C71D /* PhoNotesAgent.swift */,
 				E9E585252555AC2B0084C71D /* main.swift */,
+				D7E5BD3D26B4BDC600F0E77E /* ServiceDelegate.swift */,
 			);
 			path = PhoNotesAgent;
 			sourceTree = "<group>";
@@ -338,6 +345,7 @@
 				E9E585242555ABE60084C71D /* PhoNotesAgentProtocol.swift in Sources */,
 				E9E585262555AC2B0084C71D /* main.swift in Sources */,
 				E9E585232555ABB90084C71D /* PhoNotesAgent.swift in Sources */,
+				D7E5BD3E26B4BDC600F0E77E /* ServiceDelegate.swift in Sources */,
 				D7BE089B26B0B6BB00BA25CF /* FolderReference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

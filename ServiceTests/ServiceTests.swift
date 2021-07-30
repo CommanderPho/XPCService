@@ -59,4 +59,45 @@ class ServiceTests: XCTestCase {
 		wait(for: [textExpectation], timeout: 10.0)
 	}
 
+
+
+
+
+	func testXPCService_notesRootFoldersFetching() {
+		let textExpectation = expectation(description: "Recieve a array of folders from Notes.app")
+		let service = Service()
+		service.getNotesFolderList(withReply: { (folderReferences) in
+			print("getNotesFolderList finished with \(folderReferences)!")
+			let recordCount = folderReferences.count
+			XCTAssertNotEqual(recordCount, 0)
+			textExpectation.fulfill()
+		})
+
+		wait(for: [textExpectation], timeout: 10.0)
+	}
+
+
+
+//	func testXPCService_notesSpecifiedFoldersFetching() {
+//		let textExpectation = expectation(description: "Recieve a array of folders from Notes.app")
+//		let testFolderName = "AMPH Daily Dose Record"
+//
+//		let service = Service()
+//		service.getNotesFolderList(withReply: { (folderReferences) in
+//			print("getNotesFolderList finished with \(folderReferences)!")
+//			let recordCount = folderReferences.count
+//			XCTAssertNotEqual(recordCount, 0)
+//			textExpectation.fulfill()
+//		})
+//
+//		wait(for: [textExpectation], timeout: 10.0)
+//	}
+
+
+
+
+
+
+
+
 }

@@ -54,5 +54,42 @@ public class Service {
 	}
 
 
+	public func getNotesFolderList(childrenOf parentFolder: FolderReference? = nil, withReply reply: @escaping ([FolderReference]) -> Void) {
+		// note if parentFolder is nil, the root folders are obtained
+		let service = connection.remoteObjectProxyWithErrorHandler { (error) in
+			print("❗️Received error:", error)
+		} as! PhoNotesAgentProtocol
+
+		// define the reply
+		let dataReply: ((Data?) -> Void) = { (returned_data) in
+			guard let validObject = returned_data else {
+				print("return nil")
+				reply([])
+				return
+			}
+			// we're OK to parse!
+			let decoder = JSONDecoder()
+			guard let validLoadedParsedFolderReferenceArray = try? decoder.decode(Array<FolderReference>.self, from: validObject) else {
+				debugPrint("Warning: loaded data but couldn't decode from json!")
+				reply([])
+				return
+			}
+			print("validLoadedParsedFolderReferenceArray: \(validLoadedParsedFolderReferenceArray)")
+			reply(validLoadedParsedFolderReferenceArray)
+		}
+
+
+		if let validParentFolder = parentFolder {
+			service.getNotesFolderList(childrenOf: validParentFolder, withReply: dataReply)
+		}
+		else {
+			// Root folder is used
+			service.getNotesFolderList(withReply: dataReply)
+		}
+
+	}
+
+
+
 
 }
