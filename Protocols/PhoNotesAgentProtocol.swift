@@ -54,49 +54,14 @@ import PhoAppleNotesFramework
 	//MARK: -
 	//MARK: - Note Loading Protocol
 	func getNotesFolderList(withReply reply: @escaping (Data?) -> Void) // Returned Data is [FolderReference]
+	func getNotesFolderList(childrenOf parentFolder: FolderReference, withReply reply: @escaping (Data?) -> Void) // Returned Data is [FolderReference]
 
+	
+	
 //	func getNotes(forFolder folder: FolderReference, withReply reply: @escaping (Data?) -> Void) // Returned Data is [AppleNotesNote]
 
 }
 
-
-
-
-
-
-// MARK: -
-// MARK: - FolderReference
-// Description: A returned reference to a Notes folder with an internal specifier that can be used in future requests for notes
-// 	Contains basic elements that a view controller requesting the folder might want to display, such as its name, number of children, children, etc.
-@objcMembers
-@objc(FolderReference) public final class FolderReference: NSObject, Codable {
-
-	public let uid: String
-
-	public let name: String
-	public let numberOfItems: Int
-
-	////////////////////////////////////////////////////////////////////
-	//MARK: -
-	//MARK: - Initializers
-
-	public init(uid: String, name: String, numberOfItems: Int) {
-		self.uid = uid
-		self.name = name
-		self.numberOfItems = numberOfItems
-	}
-
-	public init(appleNotesFolder: AppleNotesFolder) {
-		self.uid = appleNotesFolder.id
-		self.name = appleNotesFolder.name
-
-		self.numberOfItems = appleNotesFolder.folders.count
-	}
-
-
-
-
-}
 
 
 

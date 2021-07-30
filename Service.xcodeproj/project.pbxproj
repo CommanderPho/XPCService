@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D742D7ED26AF7D4800BA1209 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D742D7EC26AF7D4800BA1209 /* PhoAggregateDoseServicesLib */; };
+		D7BE089A26B0B6BB00BA25CF /* FolderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE089926B0B6BB00BA25CF /* FolderReference.swift */; };
+		D7BE089B26B0B6BB00BA25CF /* FolderReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BE089926B0B6BB00BA25CF /* FolderReference.swift */; };
 		D7D2FDCF26AF60D2002E9114 /* PhoAggregateDoseServicesLib in Frameworks */ = {isa = PBXBuildFile; productRef = D7D2FDCE26AF60D2002E9114 /* PhoAggregateDoseServicesLib */; };
 		E9E585092555A8DB0084C71D /* PhoNotesAgent.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = E9E584FE2555A8DB0084C71D /* PhoNotesAgent.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E9E585102555A92D0084C71D /* PhoNotesAgentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */; };
@@ -52,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		D7A4451526AF53B300455859 /* PhoAggregateDoseServicesLib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhoAggregateDoseServicesLib; sourceTree = "<group>"; };
+		D7BE089926B0B6BB00BA25CF /* FolderReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderReference.swift; sourceTree = "<group>"; };
 		D7C6C50B26AF8B2F0066546D /* README_ServicesOffered.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_ServicesOffered.md; sourceTree = "<group>"; };
 		D7D2FDD026AF62F0002E9114 /* README_GeneralXPC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_GeneralXPC.md; sourceTree = "<group>"; };
 		E9E584EF2555A8BC0084C71D /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7BE089826B0B6A800BA25CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D7BE089926B0B6BB00BA25CF /* FolderReference.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D7D2FDCD26AF60D2002E9114 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +162,7 @@
 		E9E5850E2555A8E10084C71D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D7BE089826B0B6A800BA25CF /* Models */,
 				E9E5850F2555A92D0084C71D /* PhoNotesAgentProtocol.swift */,
 			);
 			path = Protocols;
@@ -315,6 +327,7 @@
 			files = (
 				E9E585102555A92D0084C71D /* PhoNotesAgentProtocol.swift in Sources */,
 				E9E585122555A9860084C71D /* Service.swift in Sources */,
+				D7BE089A26B0B6BB00BA25CF /* FolderReference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +338,7 @@
 				E9E585242555ABE60084C71D /* PhoNotesAgentProtocol.swift in Sources */,
 				E9E585262555AC2B0084C71D /* main.swift in Sources */,
 				E9E585232555ABB90084C71D /* PhoNotesAgent.swift in Sources */,
+				D7BE089B26B0B6BB00BA25CF /* FolderReference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

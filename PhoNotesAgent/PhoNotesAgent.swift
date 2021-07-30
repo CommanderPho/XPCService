@@ -14,10 +14,33 @@ import PhoNotesParser
 import PhoNotesLib
 import PhoAppleNotesFramework
 
+
 // MARK: -
 // MARK: - @objc class PhoNotesAgent: NSObject, PhoNotesAgentProtocol
 // Description: Despite its name, this is the actual XPC Service
 @objc class PhoNotesAgent: NSObject, PhoNotesAgentProtocol {
+
+
+	// loadedFolders: the main folders for the primary container
+	fileprivate var loadedFolders: [AppleNotesFolder] = []
+
+//	fileprivate var loadedFolderReferences: [FolderReference] = []
+
+	// Allows lookup of the AppleNotesFolder from the FolderReference a client provides
+	fileprivate var loadedFolderReverseLookupMap: [FolderReference:AppleNotesFolder] = [:]
+
+	fileprivate func performUpdatedLoadedFolders(_ newFolders: [AppleNotesFolder]) {
+		self.loadedFolderReverseLookupMap.removeAll(keepingCapacity: true)
+		self.loadedFolders.removeAll(keepingCapacity: true)
+
+		// Rebuild the array of loaded folders and the reverse lookup map
+		for aNewFolder in newFolders {
+			self.loadedFolders.append(aNewFolder)
+			// builds a folder reference to return
+			self.loadedFolderReverseLookupMap[FolderReference(appleNotesFolder: aNewFolder)] = aNewFolder
+		}
+		//TODO: can issue a notification in the future if wanted.
+	}
 
 	////////////////////////////////////////////////////////////////////
 	//MARK: -
@@ -27,26 +50,21 @@ import PhoAppleNotesFramework
 	// We keep track of the pending work item as a property
 	private var pendingNotesConnectionRequestWorkItem: DispatchWorkItem? = nil
 
-
+	//TODO: not called
 	fileprivate func startConnectingToAppleNotesProvider() {
+		//NOTE: asynchronous
 		self.pendingNotesConnectionRequestWorkItem?.cancel()
 		// Wrap our request in a work item
 		let requestWorkItem = DispatchWorkItem { [weak self] in
 			guard let validSelf = self else {
 				fatalError()
 			}
-			// Why does AppDelegate have a custom copy of the FSNotes storage?
 			let foundFolders = validSelf.appleNotesProvider.getFoldersList()
-//			AppDelegate.primaryModel.changeLoadedActiveFolders(to: foundFolders)
-
+			validSelf.performUpdatedLoadedFolders(foundFolders)
 		}
 		self.pendingNotesConnectionRequestWorkItem = requestWorkItem
 		DispatchQueue.global(qos: .userInteractive).async(execute: requestWorkItem)
 	}
-
-
-
-
 
 	private func performInitialNotesLoadingRequest() {
 		// start the process of getting all foldsers
@@ -72,8 +90,7 @@ import PhoAppleNotesFramework
 //				} // end .measure
 				print("done")
 //				self.on_end_fetch_folders(fetchedFolders: foundFolders) // do the normal thing
-
-
+				self.performUpdatedLoadedFolders(foundFolders)
 			}
 
 		} 	// End callback.
@@ -83,19 +100,14 @@ import PhoAppleNotesFramework
 
 
 	func getNotesFolderList(withReply reply: @escaping (Data?) -> Void) {
+		//TODO: user the work item
 		let foundFolders = self.appleNotesProvider.getFoldersList() // [AppleNotesFolder]
+		self.performUpdatedLoadedFolders(foundFolders)
+
 		// Convert to [FolderReference]'s
-		let folderReferences = foundFolders.map({ FolderReference(appleNotesFolder: $0) }) // [FolderReference]
+//		let folderReferences = foundFolders.map({ FolderReference(appleNotesFolder: $0) }) // [FolderReference]
 
-//		do {
-//			try self.appleNotesProvider.getSubfolders(ofFolder: <#T##AppleNotesFolder#>)
-//
-//		} catch <#pattern#> {
-//			<#statements#>
-//		}
-
-
-		//TODO: should we keep a map of [FolderReference:AppleNotesFolder] or something? How does the requester go about getting children?
+		let folderReferences = Array(self.loadedFolderReverseLookupMap.keys)  // [FolderReference]
 
 		// Encode to data
 		guard let newJsonData = EncodableImportExportHelper.getEncodedData(arrayOfEncodables: folderReferences) else {
@@ -107,6 +119,44 @@ import PhoAppleNotesFramework
 		reply(newJsonData)
 	}
 
+
+
+	func getNotesFolderList(childrenOf parentFolder: FolderReference, withReply reply: @escaping (Data?) -> Void) {
+		// find the AppleNotesFolder
+		guard let appleNotesFolder = self.loadedFolderReverseLookupMap[parentFolder] else {
+			// This really shouldn't happen, as we passed the record back
+			print("WARNING: Couldn't get parentFolder from reverse lookup map. This really shouldn't happen!")
+			reply(nil)
+			return
+		}
+
+		do {
+			guard let foundSubFolders = try self.appleNotesProvider.getSubfolders(ofFolder: appleNotesFolder) else {
+				print("found no subfolders")
+				reply(nil)
+				return
+			} // [AppleNotesFolder]
+
+			self.performUpdatedLoadedFolders(foundSubFolders)
+
+			// Convert to [FolderReference]'s
+			let folderReferences = self.loadedFolderReverseLookupMap.compactMap({ $0.key })
+			// Encode to data
+			guard let newJsonData = EncodableImportExportHelper.getEncodedData(arrayOfEncodables: folderReferences) else {
+				print("Failed to encode [FolderReference] array!")
+				reply(nil)
+				return
+			}
+			print("Successfully encoded [FolderReference] array as Data!")
+			reply(newJsonData)
+
+		} catch let error {
+			print("error: \(error)")
+			reply(nil)
+			return
+		}
+
+	}
 
 
 
