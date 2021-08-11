@@ -24,8 +24,6 @@ import PhoAppleNotesFramework
 	// loadedFolders: the main folders for the primary container
 	fileprivate var loadedFolders: [AppleNotesFolder] = []
 
-//	fileprivate var loadedFolderReferences: [FolderReference] = []
-
 	// Allows lookup of the AppleNotesFolder from the FolderReference a client provides
 	fileprivate var loadedFolderReverseLookupMap: [FolderReference:AppleNotesFolder] = [:]
 
